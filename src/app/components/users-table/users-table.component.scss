@@ -1,0 +1,15 @@
+$default-space: 1em;
+
+.users-table {
+  padding: $default-space;
+
+  &__title {
+    padding-bottom: $default-space;
+  }
+
+  &__content{
+    td {
+        padding: $default-space;
+    }
+  }
+}
