@@ -7,6 +7,7 @@ This repository contains the code for a table of 10 users, created using Angular
 The technology stack used for this project includes:
 
 - Angular
+- Nrwl
 - NgRx
 - RxJS
 - SCSS
