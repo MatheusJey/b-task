@@ -1,10 +1,34 @@
 <div class="users-table">
-    <div class="users-table__title">Users table</div>
-    <div class="users-table_content">
-        <table>
-            <tr>
-                <td></td>
-            </tr>
-        </table>
+  <div class="users-table__title">Users table</div>
+  <div class="users-table__content">
+    <div class="users-loading" *ngIf="isUsersTableLoading; else loaded">
+      Loading...
     </div>
+  </div>
 </div>
+
+<ng-template #loaded>
+  <div class="users-error" *ngIf="usersTableError; else showData">
+    <b>Failed to load data.</b><br />
+    Error:{{ usersTableError }}
+  </div>
+</ng-template>
+
+<ng-template #showData>
+  <table>
+    <tr *ngFor="let users of userPairs">
+      <ng-container *ngFor="let user of users">
+        <ng-container
+          *ngTemplateOutlet="userTemplate; context: { user }"
+        ></ng-container>
+      </ng-container>
+    </tr>
+  </table>
+</ng-template>
+
+<ng-template let-user="user" #userTemplate>
+  <td>
+    <span class="users-city">{{ user.address.city }}</span>
+    <span>{{ user.name }}</span>
+  </td>
+</ng-template>

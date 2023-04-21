@@ -5,11 +5,33 @@ $default-space: 1em;
 
   &__title {
     padding-bottom: $default-space;
+    text-align: center;
   }
 
-  &__content{
-    td {
+  &__content {
+    .users-loading, .users-error {
+      text-align: center;
+    }
+
+    .users-error {
+      color: red;
+    }
+
+    table, td, td {
+      border: 2px solid black;
+    }
+    
+    table {
+      width: 100%;
+      border-collapse: collapse;
+
+      td {
         padding: $default-space;
+
+        .users-city {
+          float: right;
+        }
+      }
     }
   }
 }

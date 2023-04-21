@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { UsersTableState } from './+state/users-table/users-table.reducer';
-import { $usersTableData } from './+state/users-table/users-table.selectors';
+import { $userTableError, $usersTableData, $usersTableLoading } from './+state/users-table/users-table.selectors';
 import { getUsersTable } from './+state/users-table/users-table.actions';
 import { Store } from '@ngrx/store';
 
@@ -11,7 +11,9 @@ import { Store } from '@ngrx/store';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent implements OnInit {
-  readonly $usersTableData = this.store.select($usersTableData);
+  readonly usersTableData$ = this.store.select($usersTableData);
+  readonly isUsersTableLoading$ = this.store.select($usersTableLoading);
+  readonly usersTableError$ = this.store.select($userTableError);
 
   constructor(private readonly store: Store<UsersTableState>) {}
 

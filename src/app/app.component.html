@@ -1,1 +1,6 @@
+<b-task-users-table
+  [isUsersTableLoading]="isUsersTableLoading$ | async"
+  [usersTableData]="usersTableData$ | async"
+  [usersTableError]="usersTableError$ | async"
+></b-task-users-table>
 <router-outlet></router-outlet>
